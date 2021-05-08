@@ -16,6 +16,9 @@ let gameResult = 0;
 
 const clickCard = e => {
     activeCard = e.target;
+
+    if (activeCard == activeCards[0]) return;
+
     activeCard.classList.remove('hidden');
 
     if (activeCards.length === 0) {
@@ -27,13 +30,21 @@ const clickCard = e => {
         activeCards[1] = activeCard;
 
         setTimeout(() => {
+
             if (activeCards[0].className === activeCards[1].className) {
+
+                gameResult++;
+
+                cards = cards.filter(card => !card.classList.contains('guessed'));
+
                 activeCards.forEach(e => {
                     e.classList.remove('hidden');
                     e.classList.add('guessed');
-                    gameResult++;
-                    if (gameResult == gamePairs.length) {
-                        
+                    if (gameResult == gamePairs) {
+                        const endTime = new Date().getTime();
+                        const gameTime = (endTime - startTime) / 1000;
+                        alert(`Gratulacje, wygrałeś w ${gameTime} sekund!`);
+                        location.reload();
                     }
                 })
 
@@ -44,7 +55,8 @@ const clickCard = e => {
             }
             activeCard = '';
             activeCards.length = 0;
-            cards.forEach(card => card.addEventListener('click', clickCard))
+
+            cards.forEach(card => card.addEventListener('click', clickCard));
         }, 500)
 
     };
