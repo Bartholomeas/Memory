@@ -1,5 +1,74 @@
+$text-color:rgb(243, 239, 226);
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: 'Raleway', sans-serif;
+    background-color: rgb(43, 41, 53);
+    color: $text-color;
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div {
+    height: 33vh;
+    flex-basis: 15%;
+    flex-grow: 1;
+    background-color: rgb(34, 12, 44);
+    border: 3px solid rgb(255, 255, 255);
+}
+
+@media (orientation: portrait) {
+    div {
+        flex-basis: 30%;
+        height: 16.6vh;
+    }
+}
+
+.one {
+    background-color: gold;
+}
+
+.two {
+    background-color: lightcoral;
+}
+
+.three {
+    background-color: lightskyblue;
+}
+
+.four {
+    background-color: limegreen;
+}
+
+.five {
+    background-color: violet;
+}
+
+.six {
+    background-color: orangered;
+}
+
+.seven {
+    background-color: purple;
+}
+
+.eight {
+    background-color: aquamarine;
+}
+
+.nine {
+    background-color: green;
 }
